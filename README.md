@@ -61,6 +61,6 @@ lua require('xxxx.tomato').reset()
 ## TODO
 
 - [ ] a control float window
-- [ ] a stats html about focus data every day
+- [ ] a stats html about focus detail data
 
 
