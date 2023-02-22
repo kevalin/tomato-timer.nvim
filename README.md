@@ -41,6 +41,7 @@ lualine.setup {
 }
 ```
 You can get a timer on your lualine. Like this:
+
 ![图片](https://user-images.githubusercontent.com/3123807/220627101-b6edcc46-9f31-41bd-8bc9-6906d3bbb818.png)
 
 ### start timer round
