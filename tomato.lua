@@ -10,8 +10,6 @@ local M = {
   long_break = 15,
 }
 
-local M = {}
-
 local colors = require("tokyonight.colors").setup()
 local notify = require("notify")
 notify.setup({
