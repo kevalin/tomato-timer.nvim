@@ -3,7 +3,7 @@ Focus tomato timer 🍅🕗🎯
 
 ## Usage
 
-To add configuration to lualine, you can edit the require'lualine'.setup function in your init.lua file.
+To add configuration to lualine, you can edit the `require'lualine'.setup` function in your init.lua file.
 
 For example, to add a new section to lualine that displays the current git branch, you can add the following code to the `require'lualine'.setup` function:
 
