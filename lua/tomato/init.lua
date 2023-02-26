@@ -10,10 +10,8 @@ local M = {
   long_break = 15,
 }
 
-local colors = require("tokyonight.colors").setup()
 local notify = require("notify")
 notify.setup({
-  background_colour = colors.bg_popup,
   render = 'simple'
 })
 
@@ -103,9 +101,6 @@ function M.start_round()
       else
         M.second = M.second - 1
       end
-      require('lualine').refresh({
-        place = { 'statusline' }
-      })
     end))
   end
 end
@@ -128,9 +123,6 @@ function M.start_short_break()
       else
         M.second = M.second - 1
       end
-      require('lualine').refresh({
-        place = { 'statusline' }
-      })
     end))
   end
 end
@@ -152,9 +144,6 @@ function M.start_long_break()
       else
         M.second = M.second - 1
       end
-      require('lualine').refresh({
-        place = { 'statusline' }
-      })
     end))
   end
 end
