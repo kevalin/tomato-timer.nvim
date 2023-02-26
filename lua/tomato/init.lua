@@ -10,10 +10,8 @@ local M = {
   long_break = 15,
 }
 
-local colors = require("tokyonight.colors").setup()
 local notify = require("notify")
 notify.setup({
-  background_colour = colors.bg_popup,
   render = 'simple'
 })
 
@@ -91,7 +89,6 @@ function M.start_round()
     timer:start(1000, 1000, vim.schedule_wrap(function()
       if M.minute == 0 and M.second == 0 then
         timer:close()
-        n('Round ' .. tostring(M.count) .. ' is done!')
         if M.count % M.chunk > 0 then
           M.switch(status.short_break)
         else
@@ -103,9 +100,6 @@ function M.start_round()
       else
         M.second = M.second - 1
       end
-      require('lualine').refresh({
-        place = { 'statusline' }
-      })
     end))
   end
 end
@@ -120,7 +114,6 @@ function M.start_short_break()
     timer:start(1000, 1000, vim.schedule_wrap(function()
       if M.minute == 0 and M.second == 0 then
         timer:close()
-        n('Short break is done!')
         M.switch(status.start)
       elseif M.second == 0 then
         M.second = 59
@@ -128,9 +121,6 @@ function M.start_short_break()
       else
         M.second = M.second - 1
       end
-      require('lualine').refresh({
-        place = { 'statusline' }
-      })
     end))
   end
 end
@@ -144,7 +134,6 @@ function M.start_long_break()
     timer:start(1000, 1000, vim.schedule_wrap(function()
       if M.minute == 0 and M.second == 0 then
         timer:close()
-        n('Long break is done!')
         M.switch(status.start)
       elseif M.second == 0 then
         M.second = 59
@@ -152,9 +141,6 @@ function M.start_long_break()
       else
         M.second = M.second - 1
       end
-      require('lualine').refresh({
-        place = { 'statusline' }
-      })
     end))
   end
 end
