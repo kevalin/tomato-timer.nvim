@@ -1,5 +1,34 @@
 # tomato-timer.nvim
-Focus tomato timer 🍅🕗🎯
+Focus tomato timer 🍅 🕗 🎯
+
+## Install
+
+### Packer
+
+```lua
+use { 'Kevalin/tomato-timer.nvim', requires = 'rcarriga/nvim-notify' }
+```
+
+## Configuration
+
+You can setup four variables:
+
+- `chunk`, it means a long break after running how many rounds. Default value is 4 times.
+- `round`, it means the time of each focus. Default value is 25 minutes.
+- `short_break`, it means the time of each short break, and after every focus there is a short break. Default value is 5 minutes.
+- `long_break`, it means the time of each long break, and after 4 times focus there is a long break. Default value is 15 minutes.
+
+```lua
+local ok, tomato = pcall(require, 'tomato')
+if not ok then return end
+
+tomato.setup({
+  chunk = 4,
+  round = 25,
+  short_break = 5,
+  long_break = 15,
+})
+```
 
 ## Usage
 
@@ -22,7 +51,7 @@ lualine.setup {
     lualine_b = { "branch", "diff", "diagnostics" },
     lualine_c = {
       { "filename" },
-      require('kevalin.tomato').message
+      require('tomato').message
     },
     lualine_x = { "encoding", "fileformat", "filetype" },
     lualine_y = { "progress" },
@@ -47,7 +76,7 @@ You can get a timer on your lualine. Like this:
 ### start timer
 
 ```lua
-lua require('xxxx.tomato').start_round()
+lua require('tomato').start_round()
 ```
 
 Next, It will automatically start the timer in a loop.
@@ -55,7 +84,19 @@ Next, It will automatically start the timer in a loop.
 ### reset timer
 
 ```lua
-lua require('xxxx.tomato').reset()
+lua require('tomato').reset()
+```
+
+### keymaps
+
+You You can also set some shortcut keys, such as my current configuration:
+
+```lua
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+map('n', '<C-t>', "<cmd>lua require('tomato').start_round()<CR>", opts)
+map('n', '<C-r>', "<cmd>lua require('tomato').reset()<CR>", opts)
 ```
 
 ## TODO
