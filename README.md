@@ -71,7 +71,10 @@ lualine.setup {
 ```
 You can get a timer on your lualine. Like this:
 
-![图片](https://user-images.githubusercontent.com/3123807/220627101-b6edcc46-9f31-41bd-8bc9-6906d3bbb818.png)
+![图片](https://user-images.githubusercontent.com/3123807/221552993-536d51f9-b4cb-4332-876b-2ac7687886d1.png)
+![图片](https://user-images.githubusercontent.com/3123807/221553083-a28a6e35-95fd-4531-8cd0-c6146e00373c.png)
+![图片](https://user-images.githubusercontent.com/3123807/221553276-eb157d3c-3e43-4b88-9f09-634c519399ba.png)
+![图片](https://user-images.githubusercontent.com/3123807/221553621-09871332-2ea5-48be-95b0-66d24554fedd.png)
 
 ### start timer
 
