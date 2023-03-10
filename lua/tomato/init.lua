@@ -32,7 +32,8 @@ local icons = {
   tomato = '🍅',
   start = '⏰',
   short_break = '☕',
-  long_break = '☕☕'
+  long_break = '☕☕',
+  reset = '🔁'
 }
 
 local status = {
@@ -169,4 +170,42 @@ function M.message()
   return icon .. ' ' .. formater(M.minute) .. ':' .. formater(M.second)
 end
 
+function M.open_win()
+  local buf = vim.api.nvim_create_buf(false, true)
+  vim.api.nvim_buf_set_option(buf, "bufhidden", "wipe")
+
+  local height = vim.api.nvim_get_option("lines")
+  local width = vim.api.nvim_get_option("columns")
+  print(height, width)
+
+  local win_height = 10
+  local win_width = 20
+
+  local row = math.ceil((height - win_height) / 2 - 1)
+  local col = math.ceil((width - win_width) / 2)
+
+  local content = {
+    ' 🍅 Tomato Timer 🍅 ',
+    '--------------------',
+    icons.start .. ' Start',
+    icons.reset .. ' Reset'
+  }
+
+  vim.api.nvim_buf_set_lines(buf, 0, 2, false, content)
+
+  local opts = {
+    style = "minimal",
+    relative = "editor",
+    width = win_width,
+    height = win_height,
+    row = row,
+    col = col,
+    border = "rounded",
+  }
+
+  vim.api.nvim_open_win(buf, true, opts)
+  -- vim.api.nvim_win_set_option(win, "cursorline", true)
+end
+
 return M
+
