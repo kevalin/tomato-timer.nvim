@@ -95,7 +95,7 @@ lua require('tomato').reset()
 
 ### keymaps
 
-You You can also set some shortcut keys, such as my current configuration:
+You can also set some shortcut keys, such as my current configuration:
 
 ```lua
 local map = vim.api.nvim_set_keymap
